@@ -1,23 +1,13 @@
 {
-  "name": "PharmachainAI",
+  "name": "pharmachains-bot",
   "version": "1.0.0",
-  "description": "",
+  "description": "Telegram Bot for PharmaChains",
   "main": "bot.js",
   "scripts": {
     "start": "node bot.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs",
   "dependencies": {
-    "dotenv": "^17.4.2",
+    "dotenv": "^16.4.5",
     "telegraf": "^4.16.3"
   }
 }
-const http = require('http');
-   const server = http.createServer((req, res) => {
-       res.writeHead(200, { 'Content-Type': 'text/plain' });
-       res.end('Bot is alive\n');
-   });
-   server.listen(process.env.PORT || 3000);
