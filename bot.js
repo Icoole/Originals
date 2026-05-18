@@ -1,12 +1,13 @@
 require('dotenv').config();
 const { Telegraf } = require('telegraf');
+const http = require('http');
 
 const bot = new Telegraf(process.env.BOT_TOKEN);
 
 // --- CONFIGURATION ---
 const BANNED_WORDS = ['scam', 'rugpull', 'pump', 'dump']; // Add lowercase words to ban
 const CRYPTO_DETAILS = {
-    ca: "`0x1234567890abcdef1234567890abcdef12345678` (Ethereum)",
+    ca: "`0x1234567890abcdef1234567890abcdef12345678` (Base)",
     website: "https://yourcryptoproject.com",
     telegram: "https://t.me/yourprojectgroup",
     twitter: "https://x.com/yourproject"
