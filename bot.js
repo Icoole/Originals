@@ -103,3 +103,21 @@ bot.launch().then(() => {
 // Enable graceful stop
 process.once('SIGINT', () => bot.stop('SIGINT'));
 process.once('SIGTERM', () => bot.stop('SIGTERM'));
+
+// ... upper part of your bot.js code ...
+
+// Start the bot locally
+bot.launch().then(() => {
+    console.log('🚀 PharmaChains Bot is live and running...');
+});
+
+// Web server for Render hosting uptime check (THIS GOES HERE, NOT IN PACKAGE.JSON)
+const server = http.createServer((req, res) => {
+    res.writeHead(200, { 'Content-Type': 'text/plain' });
+    res.end('PharmaChains Bot is alive\n');
+});
+server.listen(process.env.PORT || 3000);
+
+// Graceful stop
+process.once('SIGINT', () => bot.stop('SIGINT'));
+process.once('SIGTERM', () => bot.stop('SIGTERM'));
