@@ -1,0 +1,23 @@
+{
+  "name": "PharmachainAI",
+  "version": "1.0.0",
+  "description": "",
+  "main": "bot.js",
+  "scripts": {
+    "start": "node bot.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "dotenv": "^17.4.2",
+    "telegraf": "^4.16.3"
+  }
+}
+const http = require('http');
+   const server = http.createServer((req, res) => {
+       res.writeHead(200, { 'Content-Type': 'text/plain' });
+       res.end('Bot is alive\n');
+   });
+   server.listen(process.env.PORT || 3000);
