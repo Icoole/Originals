@@ -86,10 +86,6 @@ bot.command('ca', (ctx) => {
 
 bot.command('website', (ctx) => {
     sendToDM(ctx, `🌐 *Official Website:* \n${CRYPTO_DETAILS.website}`);
-// 1. Create the basic HTTP server for Render's health check
-const server = http.createServer((req, res) => {
-    res.writeHead(200, { 'Content-Type': 'text/plain' });
-    res.end('PharmaChains Bot is active and running live!\n');
 });
 
 bot.command('links', (ctx) => {
@@ -100,38 +96,20 @@ bot.command('links', (ctx) => {
                          `📄 CA: ${CRYPTO_DETAILS.ca}`;
     sendToDM(ctx, linksMessage);
 });
-// 2. Launch the Telegram Bot connection
+
+const server = http.createServer((req, res) => {
+    res.writeHead(200, { 'Content-Type': 'text/plain' });
+    res.end('PharmaChains Bot is active and running live!\n');
+});
+
 bot.launch()
     .then(() => console.log('🚀 PharmaChains Bot successfully connected to Telegram!'))
     .catch((err) => console.error('Failed to launch bot:', err));
 
-// Start the bot locally for testing
-bot.launch().then(() => {
-    console.log('🚀 Crypto Bot is running smoothly...');
-// 3. Bind the server to Render's dynamic port (Crucial Fix)
 const PORT = process.env.PORT || 3000;
 server.listen(PORT, () => {
     console.log(`Server is listening on port ${PORT}`);
 });
 
-// Enable graceful stop
-process.once('SIGINT', () => bot.stop('SIGINT'));
-process.once('SIGTERM', () => bot.stop('SIGTERM'));
-
-// ... upper part of your bot.js code ...
-
-// Start the bot locally
-bot.launch().then(() => {
-    console.log('🚀 PharmaChains Bot is live and running...');
-});
-
-// Web server for Render hosting uptime check (THIS GOES HERE, NOT IN PACKAGE.JSON)
-const server = http.createServer((req, res) => {
-    res.writeHead(200, { 'Content-Type': 'text/plain' });
-    res.end('PharmaChains Bot is alive\n');
-});
-server.listen(process.env.PORT || 3000);
-
-// Graceful stop
 process.once('SIGINT', () => bot.stop('SIGINT'));
 process.once('SIGTERM', () => bot.stop('SIGTERM'));
