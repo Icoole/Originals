@@ -6,12 +6,17 @@ const http = require('http');
 const bot = new Telegraf(process.env.BOT_TOKEN);
 
 // --- CONFIGURATION ---
-const BANNED_WORDS = ['scam', 'rugpull', 'pump', 'dump']; // Add lowercase words to ban
+const BANNED_WORDS = ['scam', 'rugpull', 'pump', 'dump', 'trade', 'guaranteed 10x / 100x', 'get [2X]']; // Add lowercase words to ban
 const CRYPTO_DETAILS = {
-    ca: "`0x1234567890abcdef1234567890abcdef12345678` (Base)",
-    website: "https://yourcryptoproject.com",
-    telegram: "https://t.me/yourprojectgroup",
-    twitter: "https://x.com/yourproject"
+    dexscreener: 'https://dexscreener.com/base/0x505c61211c344E141b73057942Ce12E1E38468ee',
+    blog: 'https://pharmachains.ai/health-hub/us',
+    xus: 'https://x.com/pharmachainaius',
+    xafrica: 'https://x.com/pharmachainai',
+    instagram: 'https://www.instagram.com/pharmachainai',
+    linkedin: 'https://www.linkedin.com/company/pharmachains',
+    explorer: 'https://basescan.org/token/0x3513e4a7d27d18c2c894d98bc5a55406360b9ba3',
+    ca: '0x3513e4a7d27d18c2c894d98bc5a55406360b9ba3',
+    website: 'https://www.pharmachains.ai',
 };
 
 // 1. GREET FIRST TIME USERS (When they join a group)
@@ -82,6 +87,22 @@ const sendToDM = async (ctx, text) => {
 // Command Triggers
 bot.command('ca', (ctx) => {
     sendToDM(ctx, `📄 *Contract Address:* \n\n${CRYPTO_DETAILS.ca}`);
+});
+
+bot.command('dexscreener', (ctx) => {
+    sendToDM(ctx, `📄 *DexScreener Link:* \n\n${CRYPTO_DETAILS.dexscreener}`);
+});
+
+bot.command('blog', (ctx) => {
+    sendToDM(ctx, `📄 *Blog Link:* \n\n${CRYPTO_DETAILS.blog}`);
+});
+
+bot.command('xafrica', (ctx) => {
+    sendToDM(ctx, `📄 *Xafrica:* \n\n${CRYPTO_DETAILS.xafrica}`);
+});
+
+bot.command('xus', (ctx) => {
+    sendToDM(ctx, `📄 *Xus:* \n\n${CRYPTO_DETAILS.xus}`);
 });
 
 bot.command('website', (ctx) => {
