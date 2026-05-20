@@ -6,7 +6,7 @@ const http = require('http');
 const bot = new Telegraf(process.env.BOT_TOKEN);
 
 // --- CONFIGURATION ---
-const BANNED_WORDS = ['scam', 'rugpull', 'pump', 'dump', 'trade', 'guaranteed 10x / 100x', 'get [2X]']; // Add lowercase words to ban
+const BANNED_WORDS = ['scam', 'rugpull', 'pump', 'dump', 'trade', 'guaranteed 10x / 100x', 'get [2X]', 'group']; // Add lowercase words to ban
 const CRYPTO_DETAILS = {
     dexscreener: 'https://dexscreener.com/base/0x505c61211c344E141b73057942Ce12E1E38468ee',
     blog: 'https://pharmachains.ai/health-hub/us',
