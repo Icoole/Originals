@@ -17,6 +17,7 @@ const CRYPTO_DETAILS = {
     explorer: 'https://basescan.org/token/0x3513e4a7d27d18c2c894d98bc5a55406360b9ba3',
     ca: '0x3513e4a7d27d18c2c894d98bc5a55406360b9ba3',
     website: 'https://www.pharmachains.ai',
+    telegram: 'https://t.me/PharmaChainsAI',
 };
 
 // 1. GREET FIRST TIME USERS (When they join a group)
@@ -98,11 +99,15 @@ bot.command('blog', (ctx) => {
 });
 
 bot.command('xafrica', (ctx) => {
-    sendToDM(ctx, `📄 *Xafrica:* \n\n${CRYPTO_DETAILS.xafrica}`);
+    sendToDM(ctx, `🐦 *Xafrica:* \n\n${CRYPTO_DETAILS.xafrica}`);
 });
 
 bot.command('xus', (ctx) => {
-    sendToDM(ctx, `📄 *Xus:* \n\n${CRYPTO_DETAILS.xus}`);
+    sendToDM(ctx, `🐦 *Xus:* \n\n${CRYPTO_DETAILS.xus}`);
+});
+
+bot.command('explorer', (ctx) => {
+    sendToDM(ctx, `🌐 *Explorer:* \n\n${CRYPTO_DETAILS.explorer}`);
 });
 
 bot.command('website', (ctx) => {
@@ -113,8 +118,10 @@ bot.command('links', (ctx) => {
     const linksMessage = `🔗 *Official Project Links:* \n\n` +
                          `🌐 Website: ${CRYPTO_DETAILS.website}\n` +
                          `📱 Telegram: ${CRYPTO_DETAILS.telegram}\n` +
-                         `🐦 Twitter/X: ${CRYPTO_DETAILS.twitter}\n` +
-                         `📄 CA: ${CRYPTO_DETAILS.ca}`;
+                         `🐦 Xus: ${CRYPTO_DETAILS.xus}\n` +
+                         `🐦 Xafrica: ${CRYPTO_DETAILS.xafrica}\n` +
+                         `📱 DexScreener: ${CRYPTO_DETAILS.dexscreener}\n` +
+                         `📄 Blog: ${CRYPTO_DETAILS.blog}\n`;
     sendToDM(ctx, linksMessage);
 });
 
